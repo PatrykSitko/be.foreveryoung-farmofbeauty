@@ -20,7 +20,14 @@ const mapStateToProps = ({
 }) => {
   return { window: { width, height } };
 };
-const handleDragEvent = (containerRef, setImagePosition, hw, vh, event) => {
+const handleDragEvent = (
+  containerRef,
+  setImagePosition,
+  setAllowedToTriggerCallEvent,
+  hw,
+  vh,
+  event
+) => {
   function determine(x, hw, vh) {
     return x >
       hw / 2 -
@@ -40,15 +47,22 @@ const handleDragEvent = (containerRef, setImagePosition, hw, vh, event) => {
     event.pageX ||
     (event.nativeEvent.touches && event.nativeEvent.touches[0].pageX) ||
     0;
+  let prevX = x;
   x = determine(x, hw, vh);
   setImagePosition({
     x,
     y: container.y
   });
+  if (x !== prevX) {
+    setAllowedToTriggerCallEvent(true);
+  }
 };
 function SlideToCallButton({ window: { width: hw, height: vh } }) {
   const containerRef = useRef();
   const [imagePosition, setImagePosition] = useState(null);
+  const [allowedToTriggerCallEvent, setAllowedToTriggerCallEvent] = useState(
+    false
+  );
   return (
     <div ref={containerRef} className="slide-to-call-button-container">
       <img
@@ -64,23 +78,31 @@ function SlideToCallButton({ window: { width: hw, height: vh } }) {
           this,
           containerRef,
           setImagePosition,
+          setAllowedToTriggerCallEvent,
           hw,
           vh
         )}
         onTouchEnd={() => {
           setImagePosition({ x: 0, y: imagePosition.y });
-          triggerCallEvent();
+          if (allowedToTriggerCallEvent) {
+            setAllowedToTriggerCallEvent(false);
+            triggerCallEvent();
+          }
         }}
         onDrag={handleDragEvent.bind(
           this,
           containerRef,
           setImagePosition,
+          setAllowedToTriggerCallEvent,
           hw,
           vh
         )}
         onDragEnd={() => {
           setImagePosition({ x: 0, y: imagePosition.y });
-          triggerCallEvent();
+          if (allowedToTriggerCallEvent) {
+            setAllowedToTriggerCallEvent(false);
+            triggerCallEvent();
+          }
         }}
         src={callButtonImage}
         alt="call button"
