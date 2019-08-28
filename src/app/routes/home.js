@@ -11,12 +11,12 @@ import contactImage from "../resources/backgrounds/menu/entry/icon/business-card
 import MenuMobileBottom from "../components/menu/bottom/mobile";
 import MenuMobileBottomButtons from "../components/menu/bottom/buttons";
 import GenderToggleButton from "../components/buttons/toggle/gender";
+import SlideToMessageButton from "../components/buttons/slide/message";
 import SlideToCallButton from "../components/buttons/slide/call";
 import FemaleButton from "../components/buttons/gender/female";
 import MaleButton from "../components/buttons/gender/male";
 // import MenuDesktop from "../components/menu/desktop";
 
-//backgroundColor: "#8b2c9455",
 export default function Home() {
   const [displayGenderButtons, setDisplayGenderButtons] = useState(false);
   return [
@@ -40,7 +40,7 @@ export default function Home() {
           />
         </MenuMobileBottomButtons.middle>
         <MenuMobileBottomButtons.right>
-          {displayGenderButtons ? <MaleButton /> : <div></div>}
+          {displayGenderButtons ? <MaleButton /> : <div />}
         </MenuMobileBottomButtons.right>
       </MenuMobileBottom>
     </MenuMobile>
