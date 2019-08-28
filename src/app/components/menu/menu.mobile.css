@@ -1,0 +1,152 @@
+.mobile-menu-shared {
+  position: fixed;
+  float: left;
+  top: 0px;
+  left: 0px;
+}
+
+.mobile-menu-button {
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  top: 4px;
+  left: 4px;
+  background-image: url(../../resources/icons/menu/expand.svg);
+  border-radius: 50px;
+  transition-property: top, left;
+  transition-duration: 0.5s;
+}
+.mobile-menu-button-active {
+  z-index: 1000;
+  top: 8px;
+  left: 8px;
+  background-image: url(../../resources/icons/menu/shrink.svg);
+}
+
+.mobile-menu-button-background {
+  z-index: 999;
+  left: 4px;
+  top: 4px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-image: url(../../resources/backgrounds/menu/128-61.jpg);
+  transition-property: top, left;
+  transition-duration: 0.5s;
+}
+.mobile-menu-button-background-active {
+  z-index: 999;
+  left: 8px;
+  top: 8px;
+  border-radius: 50px;
+  background-image: url(../../resources/backgrounds/menu/128-61.jpg);
+}
+.mobile-menu-shrinked {
+  z-index: 998;
+  transition: width 0.5s, height 0.5s, background-color 0.6s;
+  width: 49px;
+  height: 49px;
+  background-color: #582a5c20;
+}
+.mobile-menu-expanded {
+  z-index: 998;
+  transition: width 0.5s, height 0.5s, background-color 1s;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  /*neutral-color
+  background-color: #582d5c20;*/
+  /*female-color*/
+  background-color: #5f247736;
+}
+.mobile-menu-initial {
+  z-index: 998;
+  width: 49px;
+  height: 49px;
+}
+.mobile-menu {
+  overflow: hidden;
+  z-index: 998;
+  border-radius: 30px;
+  border: 3px solid black;
+  margin: 2px;
+}
+.mobile-menu-background {
+  z-index: 997;
+  left: 4px;
+  top: 4px;
+  width: 50px;
+  height: 50px;
+  background: url(../../resources/backgrounds/menu/seamless_paper_texture.png);
+  border-radius: 30px;
+  border: 3px solid black;
+  margin: 2px;
+}
+/* foreground mobile-menu-entry-image  */
+.mobile-menu-entry-wrapper::before {
+  background: url(../../resources/backgrounds/menu/ForeverYoung.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  content: "";
+  top: 0px;
+  left: 0px;
+  width: calc(100% - 24px);
+  height: calc(100% - 66px - 18vmin);
+  border: 3px solid white;
+  border-right: 0px solid white;
+}
+.mobile-menu-entry-wrapper::after {
+  z-index: 1002;
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  content: "";
+  top: 3px;
+  left: 3px;
+  width: calc(100% - 24px);
+  height: calc(100% - 72px - 18vmin);
+  border: 3px solid rgb(192, 65, 192);
+  border-radius: 8px;
+  border-left: 0px;
+  border-right: 0px;
+}
+/* background mobile-menu-entry-image  */
+.mobile-menu-entry-wrapper {
+  background: url(../../resources/backgrounds/menu/whirlpool.png);
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
+  width: calc(100% - 20px);
+  height: calc(100% - 66px - 18vmin);
+  overflow-y: auto;
+  margin-top: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+  box-shadow: 0 0 2px 2px black;
+}
+
+/* width */
+.mobile-menu-entry-wrapper::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.mobile-menu-entry-wrapper::-webkit-scrollbar-track {
+  border-radius: 50px;
+  background: #00000000;
+}
+
+/* Handle */
+.mobile-menu-entry-wrapper::-webkit-scrollbar-thumb {
+  background: #7e7b7be0;
+  border-radius: 50px;
+}

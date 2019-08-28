@@ -1,0 +1,124 @@
+.mobile-menu-entry {
+  z-index: 1001;
+  padding-top: 2vmin;
+  padding-bottom: 1vmin;
+  margin-left: 3px;
+  text-align: center;
+  border: 3px solid white;
+  border-right: 0px solid white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 3px 0px 1px 1px black;
+  font-size: calc(12px + 4vmin);
+  width: calc(95% - 5px);
+  user-select: none;
+}
+
+.mobile-menu-entry-shrinked,
+.mobile-menu-entry-expanded {
+  margin-top: calc(2px + 2.5vmin);
+  margin-bottom: calc(2px + 2.5vmin);
+}
+
+.mobile-menu-entry-shrinked {
+  font-size: 0px;
+  height: 0px;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  visibility: hidden;
+  position: relative;
+  transition: height 0.8s, font-size 0.8s, visibility 0.4s,
+    background-color 0.6s;
+}
+
+.mobile-menu-entry-shrinked::before,
+.mobile-menu-entry-expanded::before {
+  background: url(../../../resources/backgrounds/menu/entry/crossline-dots.png);
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 6px);
+  height: calc(100% - 4px);
+  z-index: -2;
+  opacity: 0.7;
+  margin-left: 2px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 2px solid black;
+}
+
+.mobile-menu-entry-expanded {
+  font-size: 9vmin;
+  height: 11vmin;
+  visibility: visible;
+  position: relative;
+  background-color: #ff00ff22;
+  transition: height 0.8s, font-size 0.8s, width 0.8s, visibility 0.4s,
+    background-color 1s;
+}
+.mobile-menu-separator::before {
+  border: 0px solid black;
+}
+.mobile-menu-separator {
+  padding-top: 2px;
+  padding-bottom: 0px;
+  border-left: 10px solid black;
+  border-right: 10px solid black;
+  width: calc(100% - 23px);
+  height: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: rgb(192, 65, 192);
+}
+.mobile-menu-entry-shrinked::after,
+.mobile-menu-entry-expanded::after {
+  background-image: url(../../../resources/backgrounds/menu/128-61.jpg);
+  background-color: white;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: 0;
+  width: calc(20% - 6px);
+  height: calc(100% - 8px);
+  z-index: -2;
+  opacity: 0.7;
+  margin-left: 2px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 2px solid black;
+  border-left: 4px solid rgb(192, 65, 192);
+  border-top-color: black;
+  border-bottom-color: black;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.mobile-menu-separator::after {
+  border: 0px solid black;
+}
+
+.mobile-menu-entry-left {
+  padding-left: 20%;
+  width: 60%;
+  float: left;
+}
+
+.mobile-menu-entry-right {
+  margin-top: -3px;
+  margin-left: 5%;
+  border-radius: 50%;
+  height: 100%;
+  float: left;
+}
+@media screen and (orientation: landscape) {
+  .mobile-menu-entry-right {
+    margin-top: -3px;
+    margin-left: 0%;
+    margin-right: 4%;
+    border-radius: 50%;
+    height: 100%;
+    float: right;
+  }
+}

@@ -1,0 +1,22 @@
+.gender-picker-popup {
+  z-index: 1006;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 80%;
+  height: 40%;
+  background-color: red;
+  margin-left: 9.5%;
+  margin-top: 40%;
+  border-radius: 5vmin;
+  border: 3px solid black;
+}
+
+@media screen and (orientation: landscape) {
+  .gender-picker-popup {
+    margin-left: 30%;
+    margin-top: 10%;
+    width: 40%;
+    height: 59%;
+  }
+}

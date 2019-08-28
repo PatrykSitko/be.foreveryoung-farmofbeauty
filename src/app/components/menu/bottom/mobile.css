@@ -1,0 +1,20 @@
+.mobile-menu-bottom {
+  position: absolute;
+  display: flex;
+  border: 3px solid white;
+  height: 14vmin;
+  width: calc(100% - 6px);
+  left: 0px;
+  bottom: 0px;
+  border-bottom-right-radius: 28px;
+  border-bottom-left-radius: 28px;
+  box-shadow: 0 0 3px 3px black;
+}
+.mobile-menu-bottom-shrinked {
+  height: 0vmin;
+  transition: height 0.2s;
+}
+.mobile-menu-bottom-expanded {
+  height: 14vmin;
+  transition: height 0.4s;
+}
