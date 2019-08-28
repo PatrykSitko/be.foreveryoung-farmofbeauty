@@ -187,3 +187,23 @@
   transition: padding-left 0.6s, line-height 0.6s, margin-top 0.6s,
     font-size 0.6s, width 0.6s, height 0.6s, opacity 0.55s;
 }
+
+@media only screen and (max-width: 768px) and (max-height: 1024px) {
+  .female-gender-button-fill {
+    line-height: 160%;
+    font-size: 9.5vmin;
+  }
+  .female-gender-button-blackout {
+    line-height: 160%;
+    font-size: 9.5vmin;
+  }
+  .male-gender-button-fill {
+    line-height: 160%;
+    font-size: 9vmin;
+  }
+
+  .male-gender-button-blackout {
+    line-height: 160%;
+    font-size: 9vmin;
+  }
+}
