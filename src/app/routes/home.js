@@ -40,7 +40,7 @@ export default function Home() {
           />
         </MenuMobileBottomButtons.middle>
         <MenuMobileBottomButtons.right>
-          {displayGenderButtons ? <MaleButton /> : <div />}
+          {displayGenderButtons ? <MaleButton /> : <SlideToMessageButton />}
         </MenuMobileBottomButtons.right>
       </MenuMobileBottom>
     </MenuMobile>

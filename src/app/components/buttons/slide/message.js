@@ -1,114 +1,53 @@
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import { connect } from "react-redux";
 import ReactDOM from "react-dom";
-import callButtonImage from "../../../resources/buttons/call-button.svg";
+import SlideToMessageImage from "../../../resources/buttons/messenger.svg";
 import "./message.css";
 
-const IMAGE_WIDTH = "14vmin";
-
-const triggerCallEvent = () => {
-  const CALL_EVENT_TRIGGER = document.createElement("a");
-  CALL_EVENT_TRIGGER.href = "tel:+32465782853";
-  CALL_EVENT_TRIGGER.click();
-};
 const mapStateToProps = ({
   state: {
     window: {
-      inner: { width, height }
+      outer: { width, height }
     }
   }
 }) => {
   return { window: { width, height } };
 };
-const handleDragEvent = (
-  containerRef,
-  setImagePosition,
-  setAllowedToTriggerCallEvent,
-  hw,
-  vh,
-  event
-) => {
-  function determine(x, hw, vh) {
-    return x >
-      hw / 2 -
-        (vh <= hw ? vh * 0.065 : hw * 0.065) -
-        3 -
-        (vh <= hw ? vh * 0.085 : hw * 0.085)
-      ? hw / 2 -
-          (vh <= hw ? vh * 0.065 : hw * 0.065) -
-          3 -
-          (vh <= hw ? vh * 0.085 : hw * 0.085)
-      : x;
-  }
-  const container = ReactDOM.findDOMNode(
-    containerRef.current
-  ).getBoundingClientRect();
-  let x =
-    event.pageX ||
-    (event.nativeEvent.touches && event.nativeEvent.touches[0].pageX) ||
-    0;
-  let prevX = x;
-  x = determine(x, hw, vh);
-  setImagePosition({
-    x,
-    y: container.y
-  });
-  if (x !== prevX) {
-    setAllowedToTriggerCallEvent(true);
-  }
-};
+
 function SlideToMessageButton({ window: { width: hw, height: vh } }) {
   const containerRef = useRef();
-  const [imagePosition, setImagePosition] = useState(null);
-  const [allowedToTriggerCallEvent, setAllowedToTriggerCallEvent] = useState(
-    false
-  );
+  const buttonRef = useRef();
+  const [imageStyle, setImageStyle] = useState();
   return (
-    <div ref={containerRef} className="slide-to-call-button-container">
+    <div ref={containerRef} className="slide-to-message-button-container">
       <img
-        style={
-          imagePosition
-            ? {
-                top: imagePosition.y,
-                paddingLeft: `calc(${imagePosition.x}px - ${IMAGE_WIDTH} / 2)`
-              }
-            : {}
-        }
-        onTouchMove={handleDragEvent.bind(
-          this,
-          containerRef,
-          setImagePosition,
-          setAllowedToTriggerCallEvent,
-          hw,
-          vh
-        )}
-        onTouchEnd={() => {
-          setImagePosition({ x: 0, y: imagePosition.y });
-          if (allowedToTriggerCallEvent) {
-            setAllowedToTriggerCallEvent(false);
-            triggerCallEvent();
-          }
+        style={{ ...imageStyle }}
+        ref={buttonRef}
+        onDrag={e => {
+          const mouse = { x: e.pageX, y: e.pageY };
+          const { left: max, right: min } = ReactDOM.findDOMNode(
+            containerRef.current
+          ).getBoundingClientRect();
+          const { left: buttonLeft } = ReactDOM.findDOMNode(
+            buttonRef.current
+          ).getBoundingClientRect();
+          const halfImageWidth = vh <= hw ? vh * 0.07 : hw * 0.07;
+          const difference = min - mouse.x;
+          let marginLeft = min - difference - max - halfImageWidth - 3;
+          let paddingRight = min - (mouse.x + halfImageWidth);
+          paddingRight =
+            marginLeft < 0 ? paddingRight + -marginLeft : paddingRight;
+          setImageStyle({ marginLeft, paddingRight });
         }}
-        onDrag={handleDragEvent.bind(
-          this,
-          containerRef,
-          setImagePosition,
-          setAllowedToTriggerCallEvent,
-          hw,
-          vh
-        )}
         onDragEnd={() => {
-          setImagePosition({ x: 0, y: imagePosition.y });
-          if (allowedToTriggerCallEvent) {
-            setAllowedToTriggerCallEvent(false);
-            triggerCallEvent();
-          }
+          setImageStyle(null);
         }}
-        src={callButtonImage}
-        alt="call button"
-        className="slide-to-call-button"
+        className="slide-to-message-button"
+        src={SlideToMessageImage}
+        alt="slide to message"
       />
     </div>
   );
 }
+
 export default connect(mapStateToProps)(SlideToMessageButton);
