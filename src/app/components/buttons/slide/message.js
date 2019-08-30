@@ -29,16 +29,19 @@ function SlideToMessageButton({ window: { width: hw, height: vh } }) {
           const { left: max, right: min } = ReactDOM.findDOMNode(
             containerRef.current
           ).getBoundingClientRect();
+          const border = 2;
           const halfImageWidth = vh <= hw ? vh * 0.07 : hw * 0.07;
           const difference = min - mouse.x;
-          let marginLeft = min - difference - max - halfImageWidth - 2;
+          let marginLeft = min - difference - max - halfImageWidth - border;
           let paddingRight = min - (mouse.x + halfImageWidth);
           paddingRight =
             marginLeft < 0 ? paddingRight + -marginLeft : paddingRight;
-          setImageStyle({
-            marginLeft: marginLeft > 0 ? marginLeft : 0,
-            paddingRight
-          });
+          if (mouse.x + halfImageWidth < min + border && mouse.x !== 0) {
+            setImageStyle({
+              marginLeft: marginLeft > 0 ? marginLeft : 0,
+              paddingRight
+            });
+          }
         }}
         onDragEnd={() => {
           setImageStyle(null);
