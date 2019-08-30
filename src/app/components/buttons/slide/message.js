@@ -36,14 +36,13 @@ function SlideToMessageButton({ window: { width: hw, height: vh } }) {
           let paddingRight = min - (mouse.x + halfImageWidth);
           paddingRight =
             marginLeft < 0 ? paddingRight + -marginLeft : paddingRight;
-          if (mouse.x + halfImageWidth < min + border) {
-            setImageStyle(
+          setImageStyle(
+            mouse.x + halfImageWidth < min + border &&
               mouse.x !== 0 && {
                 marginLeft: marginLeft > 0 ? marginLeft : 0,
                 paddingRight
               }
-            );
-          }
+          );
         }}
         onDragEnd={() => {
           setImageStyle(null);
