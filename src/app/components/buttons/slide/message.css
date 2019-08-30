@@ -9,7 +9,7 @@
 }
 
 .slide-to-message-button {
-  margin-left: calc(100% - 14vmin);
+  margin-left: calc(100% - 14.5vmin);
   height: calc(100% - 1vmin);
   width: 14vmin;
   background-color: white;
