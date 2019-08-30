@@ -47,6 +47,13 @@ function SlideToMessageButton({ window: { width: hw, height: vh } }) {
         src={SlideToMessageImage}
         alt="slide to message"
       />
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "white"
+        }}
+      ></div>
     </div>
   );
 }
