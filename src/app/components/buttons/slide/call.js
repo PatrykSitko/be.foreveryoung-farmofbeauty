@@ -29,15 +29,8 @@ const handleDragEvent = (
   event
 ) => {
   function determine(x, hw, vh) {
-    return x >
-      hw / 2 -
-        (vh <= hw ? vh * 0.065 : hw * 0.065) -
-        3 -
-        (vh <= hw ? vh * 0.085 : hw * 0.085)
-      ? hw / 2 -
-          (vh <= hw ? vh * 0.065 : hw * 0.065) -
-          3 -
-          (vh <= hw ? vh * 0.085 : hw * 0.085)
+    return x > hw / 2 - (vh <= hw ? vh * 0.15 : hw * 0.15) - 3
+      ? hw / 2 - (vh <= hw ? vh * 0.15 : hw * 0.15) - 3
       : x;
   }
   const container = ReactDOM.findDOMNode(
