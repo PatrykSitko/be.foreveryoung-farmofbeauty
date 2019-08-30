@@ -14,6 +14,28 @@ const mapStateToProps = ({
   return { window: { width, height } };
 };
 
+function handleDragEvent(containerRef, hw, vh, setImageStyle, e) {
+  const mouse = {
+    x: e.pageX || (e.nativeEvent.touches && e.nativeEvent.touches[0].pageX),
+    y: e.pageY || (e.nativeEvent.touches && e.nativeEvent.touches[0].pageY)
+  };
+  const { left: max, right: min } = ReactDOM.findDOMNode(
+    containerRef.current
+  ).getBoundingClientRect();
+  const border = 2;
+  const halfImageWidth = vh <= hw ? vh * 0.07 : hw * 0.07;
+  const difference = min - mouse.x;
+  let marginLeft = min - difference - max - halfImageWidth - border;
+  let paddingRight = min - (mouse.x + halfImageWidth);
+  paddingRight = marginLeft < 0 ? paddingRight + -marginLeft : paddingRight;
+  setImageStyle(
+    mouse.x + halfImageWidth < min + border &&
+      mouse.x !== 0 && {
+        marginLeft: marginLeft > 0 ? marginLeft : 0,
+        paddingRight
+      }
+  );
+}
 function SlideToMessageButton({ window: { width: hw, height: vh } }) {
   const containerRef = useRef();
   const buttonRef = useRef();
@@ -24,27 +46,18 @@ function SlideToMessageButton({ window: { width: hw, height: vh } }) {
       <img
         style={{ ...imageStyle }}
         ref={buttonRef}
-        onDrag={e => {
-          const mouse = { x: e.pageX, y: e.pageY };
-          const { left: max, right: min } = ReactDOM.findDOMNode(
-            containerRef.current
-          ).getBoundingClientRect();
-          const border = 2;
-          const halfImageWidth = vh <= hw ? vh * 0.07 : hw * 0.07;
-          const difference = min - mouse.x;
-          let marginLeft = min - difference - max - halfImageWidth - border;
-          let paddingRight = min - (mouse.x + halfImageWidth);
-          paddingRight =
-            marginLeft < 0 ? paddingRight + -marginLeft : paddingRight;
-          setImageStyle(
-            mouse.x + halfImageWidth < min + border &&
-              mouse.x !== 0 && {
-                marginLeft: marginLeft > 0 ? marginLeft : 0,
-                paddingRight
-              }
-          );
-        }}
+        onDrag={handleDragEvent.bind(this, containerRef, hw, vh, setImageStyle)}
         onDragEnd={() => {
+          setImageStyle(null);
+        }}
+        onTouchMove={handleDragEvent.bind(
+          this,
+          containerRef,
+          hw,
+          vh,
+          setImageStyle
+        )}
+        onTouchEnd={() => {
           setImageStyle(null);
         }}
         className="slide-to-message-button"
