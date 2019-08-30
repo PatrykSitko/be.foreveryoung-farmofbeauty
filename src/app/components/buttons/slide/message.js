@@ -19,6 +19,7 @@ function SlideToMessageButton({ window: { width: hw, height: vh } }) {
   const buttonRef = useRef();
   const [imageStyle, setImageStyle] = useState();
   const [initialImageBounds, setInitialImageBounds] = useState(null);
+
   return (
     <div ref={containerRef} className="slide-to-message-button-container">
       <img
@@ -28,7 +29,7 @@ function SlideToMessageButton({ window: { width: hw, height: vh } }) {
           const { left, right, top, bottom } = ReactDOM.findDOMNode(
             buttonRef.current
           ).getBoundingClientRect();
-          if (!initialImageBounds) {
+          if (!imageStyle) {
             setInitialImageBounds({ left, right, top, bottom });
           }
           const mouse = { x: e.pageX, y: e.pageY };
@@ -41,13 +42,10 @@ function SlideToMessageButton({ window: { width: hw, height: vh } }) {
           let paddingRight = min - (mouse.x + halfImageWidth);
           paddingRight =
             marginLeft < 0 ? paddingRight + -marginLeft : paddingRight;
-          if (
-            initialImageBounds &&
-            mouse.x - halfImageWidth < initialImageBounds.left &&
-            mouse.x - halfImageWidth + 3 > max
-          ) {
-            setImageStyle({ marginLeft, paddingRight });
-          }
+          setImageStyle({
+            marginLeft: marginLeft > 0 ? marginLeft : 0,
+            paddingRight
+          });
         }}
         onDragEnd={() => {
           setImageStyle(null);
