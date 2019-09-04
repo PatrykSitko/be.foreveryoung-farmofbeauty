@@ -1,0 +1,30 @@
+.desktop-menu-entry-left {
+  float: right;
+  background-color: #ffffff55;
+  margin-top: 0.5vmin;
+  min-height: 7.5vmin;
+  height: 100%;
+  padding: 0 1.5vmin;
+  font-size: 5vmin;
+  margin: 0.5vmin;
+  margin-right: 1vmin;
+  padding-top: 1.615vmin;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50px;
+  border: 0.5vmin solid goldenrod;
+}
+.desktop-menu-entry-right {
+  float: left;
+  background-color: #ffffff55;
+  margin-top: 0.5vmin;
+  min-height: 7.5vmin;
+  height: 100%;
+  padding: 0 1.5vmin;
+  font-size: 5vmin;
+  margin: 0.5vmin;
+  margin-left: 2vmin;
+  padding-top: 1.615vmin;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50px;
+  border: 0.5vmin solid goldenrod;
+}

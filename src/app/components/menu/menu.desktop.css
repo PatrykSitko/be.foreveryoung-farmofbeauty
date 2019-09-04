@@ -1,0 +1,181 @@
+.desktop-menu {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 8.5vmin;
+  position: absolute;
+}
+
+.desktop-menu-left {
+  border-top-left-radius: 155px;
+  border-top-right-radius: 125px;
+  margin-right: -7vmin;
+  padding-right: 7vmin;
+  float: left;
+  width: calc(50% - 9.5vmin);
+  min-height: 8.5vmin;
+  height: inherit;
+  background-color: none;
+  background: url(../../resources/backgrounds/menu/fancy-cushion.png);
+}
+.desktop-menu-left::after {
+  left: 0px;
+  top: 0px;
+  float: right;
+  position: absolute;
+  content: "";
+  min-height: 7.5vmin;
+  width: calc(50% - 7.5vmin);
+  height: 100%;
+  padding: 0 1.5vmin;
+  font-size: 5vmin;
+  margin: 0.5vmin;
+  margin-top: 0;
+  margin-right: 1vmin;
+  margin-left: 0px;
+  padding-top: 1.615vmin;
+  border-bottom-right-radius: 33%;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 75px;
+  border: 1vmin solid goldenrod;
+  border-bottom: 0.5vmin solid goldenrod;
+}
+.desktop-menu-left:before {
+  z-index: -1;
+  left: 0px;
+  top: 0px;
+  float: right;
+  position: absolute;
+  content: "";
+  background-color: #68676781;
+  min-height: 7.5vmin;
+  width: calc(50% - 7.5vmin);
+  height: 100%;
+  padding: 0 1.5vmin;
+  font-size: 5vmin;
+  margin: 0.5vmin;
+  margin-top: 0;
+  margin-right: 1vmin;
+  margin-left: 0px;
+  padding-top: 1.615vmin;
+  border-bottom-right-radius: 33%;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 75px;
+  border: 1vmin solid goldenrod;
+  border-bottom: 0.5vmin solid goldenrod;
+}
+.desktop-menu-right {
+  border-top-left-radius: 125px;
+  border-top-right-radius: 155px;
+  background: url(../../resources/backgrounds/menu/fancy-cushion.png);
+  margin-left: -7vmin;
+  padding-left: 7vmin;
+  float: right;
+  width: calc(50% - 9.5vmin);
+  min-height: 8.5vmin;
+  height: inherit;
+  background-color: none;
+}
+
+.desktop-menu-right::after {
+  right: 0px;
+  top: 0px;
+  position: absolute;
+  content: "";
+  min-height: 7.5vmin;
+  width: calc(50% - 8vmin);
+  height: 100%;
+  padding: 0 1.5vmin;
+  font-size: 5vmin;
+  margin: 0.5vmin;
+  margin-top: 0;
+  margin-right: 0vmin;
+  padding-top: 1.615vmin;
+  border-bottom-left-radius: 33%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 75px;
+  border: 1vmin solid goldenrod;
+  border-bottom: 0.5vmin solid goldenrod;
+}
+.desktop-menu-right::before {
+  z-index: -1;
+  right: 0px;
+  top: 0px;
+  position: absolute;
+  content: "";
+  background-color: #68676781;
+  min-height: 7.5vmin;
+  width: calc(50% - 7.5vmin);
+  height: 100%;
+  padding: 0 1.5vmin;
+  font-size: 5vmin;
+  margin: 0.5vmin;
+  margin-top: 0;
+  margin-right: 0;
+  padding-top: 1.615vmin;
+  border-bottom-left-radius: 33%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 75px;
+  border: 1vmin solid goldenrod;
+  border-bottom: 0.5vmin solid goldenrod;
+}
+.desktop-menu-logo {
+  cursor: pointer;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1vmin;
+  margin-left: calc(50% - 7.5vmin);
+  width: 15vmin;
+  height: 15vmin;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 0.5vmin solid goldenrod;
+  border-radius: 50%;
+}
+
+.desktop-menu-entry-0 {
+  position: absolute;
+  text-align: center;
+  font-size: 5vmin;
+  margin-left: -14vmin;
+  width: 15vmin;
+  height: 5vmin;
+  background-color: red;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 50px;
+}
+
+.desktop-menu-entry-1 {
+  position: absolute;
+  text-align: center;
+  font-size: 5vmin;
+  margin-left: 14vmin;
+  width: 15vmin;
+  height: 5vmin;
+  background-color: red;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 50px;
+}
+
+.desktop-menu-entry-2 {
+  position: absolute;
+  text-align: center;
+  font-size: 5vmin;
+  margin-left: -16vmin;
+  margin-top: 6vmin;
+  width: 15vmin;
+  height: 5vmin;
+  background-color: red;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+}

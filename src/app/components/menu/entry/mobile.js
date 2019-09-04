@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
 import "./entry.mobile.css";
-import "./entry.theme.female.css";
-import "./entry.theme.male.css";
-import "./entry.theme.neutral.css";
+import "./entry.mobile.theme.female.css";
+import "./entry.mobile.theme.male.css";
+import "./entry.mobile.theme.neutral.css";
 
 const MapStateToProps = ({
   state: {

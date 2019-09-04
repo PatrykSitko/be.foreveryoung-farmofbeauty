@@ -1,0 +1,42 @@
+/*Menu entry*/
+.menu-entry-neutral-theme {
+  border: 3px solid white;
+  border-right: 0px solid white;
+  box-shadow: 3px 0px 1px 1px black;
+}
+
+.menu-entry-shrinked-neutral-theme::before,
+.menu-entry-expanded-neutral-theme::before {
+  background: url(../../../resources/backgrounds/menu/entry/crossline-dots.png);
+  border: 2px solid black;
+}
+
+.menu-entry-shrinked-neutral-theme {
+  background-color: #b5b2923a;
+}
+.menu-entry-expanded-neutral-theme {
+  background-color: #b5b2928f;
+}
+
+.menu-entry-shrinked-neutral-theme::after,
+.menu-entry-expanded-neutral-theme::after {
+  background-image: url(../../../resources/backgrounds/menu/128-61.jpg);
+  background-color: white;
+  border: 2px solid black;
+  border-left: 4px solid #758b42a6;
+  border-top-color: black;
+  border-bottom-color: black;
+}
+
+/*Menu Entry Sepatator*/
+.menu-separator-neutral-theme::before {
+  border: 0px solid black;
+}
+.menu-separator-neutral-theme {
+  border-left: 10px solid black;
+  border-right: 10px solid black;
+  background-color: #758b42c4;
+}
+.menu-separator-neutral-theme::after {
+  border: 0px solid black;
+}

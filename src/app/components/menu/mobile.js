@@ -39,7 +39,6 @@ const handleMobileMenuButtonEvent = (
 };
 const triggerChildOnClickEvent = (
   entries,
-  currentTheme,
   mobileMenuHidden,
   setMobileMenuHidden,
   mobileMenuButtonSpinClass,
@@ -153,7 +152,6 @@ function MobileMenu({ user, children: entries }) {
         onClick={triggerChildOnClickEvent.bind(
           this,
           entries,
-          currentTheme,
           mobileMenuHidden,
           setMobileMenuHidden,
           mobileMenuButtonSpinClass,

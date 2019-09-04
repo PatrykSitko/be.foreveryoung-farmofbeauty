@@ -1,0 +1,42 @@
+/*Menu entry*/
+.menu-entry-male-theme {
+  border: 3px solid white;
+  border-right: 0px solid white;
+  box-shadow: 3px 0px 1px 1px black;
+}
+
+.menu-entry-shrinked-male-theme::before,
+.menu-entry-expanded-male-theme::before {
+  background: url(../../../resources/backgrounds/menu/entry/crossline-dots.png);
+  border: 2px solid black;
+}
+
+.menu-entry-shrinked-male-theme {
+  background-color: #3659b823;
+}
+.menu-entry-expanded-male-theme {
+  background-color: #3659b85b;
+}
+
+.menu-entry-shrinked-male-theme::after,
+.menu-entry-expanded-male-theme::after {
+  background-image: url(../../../resources/backgrounds/menu/128-61.jpg);
+  background-color: white;
+  border: 2px solid black;
+  border-left: 4px solid rgb(65, 67, 192);
+  border-top-color: black;
+  border-bottom-color: black;
+}
+
+/*Menu Entry Sepatator*/
+.menu-separator-male-theme::before {
+  border: 0px solid black;
+}
+.menu-separator-male-theme {
+  border-left: 10px solid black;
+  border-right: 10px solid black;
+  background-color: rgb(65, 67, 192);
+}
+.menu-separator-male-theme::after {
+  border: 0px solid black;
+}
