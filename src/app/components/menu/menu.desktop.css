@@ -39,7 +39,7 @@
   border-top-right-radius: 50px;
   border-top-left-radius: 75px;
   border: 1vmin solid goldenrod;
-  border-bottom: 0.5vmin solid goldenrod;
+  border-bottom: 0.5vmin solid gainsboro;
 }
 .desktop-menu-left:before {
   z-index: -1;
@@ -63,7 +63,7 @@
   border-top-right-radius: 50px;
   border-top-left-radius: 75px;
   border: 1vmin solid goldenrod;
-  border-bottom: 0.5vmin solid goldenrod;
+  border-bottom: 0.5vmin solid gainsboro;
 }
 .desktop-menu-right {
   border-top-left-radius: 125px;
@@ -96,7 +96,7 @@
   border-top-left-radius: 50px;
   border-top-right-radius: 75px;
   border: 1vmin solid goldenrod;
-  border-bottom: 0.5vmin solid goldenrod;
+  border-bottom: 0.5vmin solid gainsboro;
 }
 .desktop-menu-right::before {
   z-index: -1;
@@ -118,7 +118,7 @@
   border-top-left-radius: 50px;
   border-top-right-radius: 75px;
   border: 1vmin solid goldenrod;
-  border-bottom: 0.5vmin solid goldenrod;
+  border-bottom: 0.5vmin solid gainsboro;
 }
 .desktop-menu-logo {
   cursor: pointer;
