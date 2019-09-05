@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import MenuMobile from "./mobile";
 import MenuDesktop from "./desktop";
 import MenuEntryMobile from "./entry/mobile";
@@ -19,7 +20,19 @@ import MaleButton from "../buttons/gender/male";
 import MenuEntryDesktop from "./entry/desktop";
 
 export function DesktopMenu() {
-  return <MenuDesktop></MenuDesktop>;
+  return (
+    <MenuDesktop>
+      <MenuEntryDesktop.left onClick={() => alert("hello")}>
+        Accueil
+      </MenuEntryDesktop.left>
+      <MenuEntryDesktop.left>À propos de nous</MenuEntryDesktop.left>
+      <MenuEntryDesktop.left>Horaire</MenuEntryDesktop.left>
+      <MenuEntryDesktop.right>Galerie</MenuEntryDesktop.right>
+      <MenuEntryDesktop.right>Prix</MenuEntryDesktop.right>
+      <MenuEntryDesktop.right>Route</MenuEntryDesktop.right>
+      <MenuEntryDesktop.right>Contact</MenuEntryDesktop.right>
+    </MenuDesktop>
+  );
 }
 export function MobileMenu() {
   const [displayGenderButtons, setDisplayGenderButtons] = useState(false);
@@ -50,3 +63,20 @@ export function MobileMenu() {
     </MenuMobile>
   );
 }
+const mapStateToProps = ({
+  state: {
+    window: {
+      inner: { width }
+    }
+  }
+}) => {
+  return { width };
+};
+function Menu({ width }) {
+  const menu = useState({
+    desktop: <DesktopMenu />,
+    mobile: <MobileMenu />
+  })[0];
+  return width > 1450 ? menu.desktop : menu.mobile;
+}
+export default connect(mapStateToProps)(Menu);

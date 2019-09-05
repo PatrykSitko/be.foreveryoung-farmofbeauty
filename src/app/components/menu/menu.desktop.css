@@ -2,14 +2,17 @@
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 1650px;
   height: auto;
   min-height: 8.5vmin;
   position: absolute;
 }
 
 .desktop-menu-left {
-  border-top-left-radius: 155px;
-  border-top-right-radius: 125px;
+  transform: rotate(0deg);
+  transform-origin: 100% 100%;
+  border-top-left-radius: 95px;
+  border-top-right-radius: 65px;
   margin-right: -7vmin;
   padding-right: 7vmin;
   float: left;
@@ -18,6 +21,11 @@
   height: inherit;
   background-color: none;
   background: url(../../resources/backgrounds/menu/fancy-cushion.png);
+  transition: transform 1s;
+}
+.desktop-menu-left-closed {
+  transform: rotate(-90deg);
+  transform-origin: 100% 100%;
 }
 .desktop-menu-left::after {
   left: 0px;
@@ -26,7 +34,7 @@
   position: absolute;
   content: "";
   min-height: 7.5vmin;
-  width: calc(50% - 7.5vmin);
+  width: calc(100% - 5.5vmin);
   height: 100%;
   padding: 0 1.5vmin;
   font-size: 5vmin;
@@ -50,7 +58,7 @@
   content: "";
   background-color: #68676781;
   min-height: 7.5vmin;
-  width: calc(50% - 7.5vmin);
+  width: calc(100% - 5.5vmin);
   height: 100%;
   padding: 0 1.5vmin;
   font-size: 5vmin;
@@ -66,8 +74,10 @@
   border-bottom: 0.5vmin solid gainsboro;
 }
 .desktop-menu-right {
-  border-top-left-radius: 125px;
-  border-top-right-radius: 155px;
+  transform: rotate(0deg);
+  transform-origin: 0% 100%;
+  border-top-left-radius: 65px;
+  border-top-right-radius: 95px;
   background: url(../../resources/backgrounds/menu/fancy-cushion.png);
   margin-left: -7vmin;
   padding-left: 7vmin;
@@ -76,15 +86,20 @@
   min-height: 8.5vmin;
   height: inherit;
   background-color: none;
+  transition: transform 1s;
 }
 
+.desktop-menu-right-closed {
+  transform: rotate(90deg);
+  transform-origin: 0% 100%;
+}
 .desktop-menu-right::after {
   right: 0px;
   top: 0px;
   position: absolute;
   content: "";
   min-height: 7.5vmin;
-  width: calc(50% - 8vmin);
+  width: calc(100% - 5.5vmin);
   height: 100%;
   padding: 0 1.5vmin;
   font-size: 5vmin;
@@ -98,6 +113,7 @@
   border: 1vmin solid goldenrod;
   border-bottom: 0.5vmin solid gainsboro;
 }
+
 .desktop-menu-right::before {
   z-index: -1;
   right: 0px;
@@ -106,7 +122,7 @@
   content: "";
   background-color: #68676781;
   min-height: 7.5vmin;
-  width: calc(50% - 7.5vmin);
+  width: calc(100% - 5.5vmin);
   height: 100%;
   padding: 0 1.5vmin;
   font-size: 5vmin;
@@ -135,47 +151,4 @@
   background-size: cover;
   border: 0.5vmin solid goldenrod;
   border-radius: 50%;
-}
-
-.desktop-menu-entry-0 {
-  position: absolute;
-  text-align: center;
-  font-size: 5vmin;
-  margin-left: -14vmin;
-  width: 15vmin;
-  height: 5vmin;
-  background-color: red;
-  border-bottom-right-radius: 50px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 50px;
-}
-
-.desktop-menu-entry-1 {
-  position: absolute;
-  text-align: center;
-  font-size: 5vmin;
-  margin-left: 14vmin;
-  width: 15vmin;
-  height: 5vmin;
-  background-color: red;
-  border-bottom-left-radius: 50px;
-  border-top-left-radius: 15px;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 50px;
-}
-
-.desktop-menu-entry-2 {
-  position: absolute;
-  text-align: center;
-  font-size: 5vmin;
-  margin-left: -16vmin;
-  margin-top: 6vmin;
-  width: 15vmin;
-  height: 5vmin;
-  background-color: red;
-  border-bottom-right-radius: 50px;
-  border-top-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border-top-left-radius: 50px;
 }

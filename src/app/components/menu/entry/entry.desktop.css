@@ -1,4 +1,6 @@
 .desktop-menu-entry-left {
+  z-index: 5;
+  cursor: pointer;
   float: right;
   background-color: #ffffff55;
   margin-top: 0.5vmin;
@@ -9,11 +11,13 @@
   margin: 0.5vmin;
   margin-right: 1vmin;
   padding-top: 1.615vmin;
+  border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
-  border-top-right-radius: 50px;
   border: 0.5vmin solid goldenrod;
 }
 .desktop-menu-entry-right {
+  z-index: 5;
+  cursor: pointer;
   float: left;
   background-color: #ffffff55;
   margin-top: 0.5vmin;
@@ -25,6 +29,6 @@
   margin-left: 2vmin;
   padding-top: 1.615vmin;
   border-bottom-left-radius: 50%;
-  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50%;
   border: 0.5vmin solid goldenrod;
 }

@@ -4,6 +4,7 @@ import { browserHistory } from "./redux/store/configuration";
 import * as serviceWorker from "./serviceWorker";
 import { Router } from "react-router-dom";
 import { Provider } from "react-redux";
+import Menu from "./app/components/menu";
 import { Routes } from "./app";
 import store from "./redux/store";
 import "./index.css";
@@ -11,6 +12,7 @@ import "./index.css";
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
+      <Menu />
       <Routes />
     </Router>
   </Provider>,
