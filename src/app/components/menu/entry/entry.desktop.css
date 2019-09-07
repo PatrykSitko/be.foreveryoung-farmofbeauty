@@ -14,6 +14,7 @@
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
   border: 0.5vmin solid goldenrod;
+  transition: background-color 0.5s;
 }
 .desktop-menu-entry-right {
   z-index: 5;
@@ -31,4 +32,12 @@
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
   border: 0.5vmin solid goldenrod;
+  transition: background-color 0.5s;
+}
+.desktop-menu-entry-hover {
+  background-color: #b49a538d;
+  transition: background-color 0.5s;
+}
+.desktop-menu-entry-clicked {
+  background-color: rgba(173, 35, 35, 0.24);
 }

@@ -19,18 +19,22 @@ import FemaleButton from "../buttons/gender/female";
 import MaleButton from "../buttons/gender/male";
 import MenuEntryDesktop from "./entry/desktop";
 
-export function DesktopMenu() {
+export function DesktopMenu({ mouse }) {
   return (
     <MenuDesktop>
-      <MenuEntryDesktop.left onClick={() => alert("hello")}>
-        Accueil
+      <MenuEntryDesktop.left {...{ mouse }} onClick={() => alert("Horaire")}>
+        Horaire
       </MenuEntryDesktop.left>
-      <MenuEntryDesktop.left>À propos de nous</MenuEntryDesktop.left>
-      <MenuEntryDesktop.left>Horaire</MenuEntryDesktop.left>
-      <MenuEntryDesktop.right>Galerie</MenuEntryDesktop.right>
-      <MenuEntryDesktop.right>Prix</MenuEntryDesktop.right>
-      <MenuEntryDesktop.right>Route</MenuEntryDesktop.right>
-      <MenuEntryDesktop.right>Contact</MenuEntryDesktop.right>
+      <MenuEntryDesktop.left {...{ mouse }}>
+        À propos de nous
+      </MenuEntryDesktop.left>
+      <MenuEntryDesktop.left {...{ mouse }}>Accueil</MenuEntryDesktop.left>
+      <MenuEntryDesktop.right {...{ mouse }}>Galerie</MenuEntryDesktop.right>
+      <MenuEntryDesktop.right {...{ mouse }}>Prix</MenuEntryDesktop.right>
+      <MenuEntryDesktop.right {...{ mouse }}>Route</MenuEntryDesktop.right>
+      <MenuEntryDesktop.right {...{ mouse }} onClick={() => alert("Contact")}>
+        Contact
+      </MenuEntryDesktop.right>
     </MenuDesktop>
   );
 }
@@ -65,18 +69,15 @@ export function MobileMenu() {
 }
 const mapStateToProps = ({
   state: {
+    mouse,
     window: {
       inner: { width }
     }
   }
 }) => {
-  return { width };
+  return { width, mouse };
 };
-function Menu({ width }) {
-  const menu = useState({
-    desktop: <DesktopMenu />,
-    mobile: <MobileMenu />
-  })[0];
-  return width > 1450 ? menu.desktop : menu.mobile;
+function Menu({ width, mouse }) {
+  return width > 1450 ? <DesktopMenu {...{ mouse }} /> : <MobileMenu />;
 }
 export default connect(mapStateToProps)(Menu);
