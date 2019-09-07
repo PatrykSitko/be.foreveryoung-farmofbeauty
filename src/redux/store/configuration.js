@@ -9,8 +9,8 @@ export default (() => {
   const middlewares = applyMiddleware(routerMiddleware(browserHistory), thunk);
   const enhancers = window.__REDUX_DEVTOOLS_EXTENSION__
     ? compose(
-        middlewares,
-        window.__REDUX_DEVTOOLS_EXTENSION__()
+        middlewares
+        //window.__REDUX_DEVTOOLS_EXTENSION__()
       )
     : middlewares;
   return [reducers, enhancers];

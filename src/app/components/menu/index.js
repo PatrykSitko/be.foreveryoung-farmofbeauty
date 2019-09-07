@@ -18,51 +18,110 @@ import SlideToCallButton from "../buttons/slide/call";
 import FemaleButton from "../buttons/gender/female";
 import MaleButton from "../buttons/gender/male";
 import MenuEntryDesktop from "./entry/desktop";
+import { changePath } from "../../../redux/actions/router";
 
-export function DesktopMenu({ mouse }) {
+export function DesktopMenu({ changePath, mouse }) {
+  console.log(changePath);
   return (
-    <MenuDesktop>
-      <MenuEntryDesktop.left {...{ mouse }} onClick={() => alert("Horaire")}>
+    <MenuDesktop onClick={() => changePath("/accueil")}>
+      <MenuEntryDesktop.left
+        {...{ mouse }}
+        onClick={() => changePath("/horaire")}
+      >
         Horaire
       </MenuEntryDesktop.left>
-      <MenuEntryDesktop.left {...{ mouse }}>
+      <MenuEntryDesktop.left
+        {...{ mouse }}
+        onClick={() => changePath("/a-propos-de-nous")}
+      >
         À propos de nous
       </MenuEntryDesktop.left>
-      <MenuEntryDesktop.left {...{ mouse }}>Accueil</MenuEntryDesktop.left>
-      <MenuEntryDesktop.right {...{ mouse }}>Galerie</MenuEntryDesktop.right>
-      <MenuEntryDesktop.right {...{ mouse }}>Prix</MenuEntryDesktop.right>
-      <MenuEntryDesktop.right {...{ mouse }}>Route</MenuEntryDesktop.right>
-      <MenuEntryDesktop.right {...{ mouse }} onClick={() => alert("Contact")}>
+      <MenuEntryDesktop.left
+        {...{ mouse }}
+        onClick={() => changePath("/accueil")}
+      >
+        Accueil
+      </MenuEntryDesktop.left>
+      <MenuEntryDesktop.right
+        {...{ mouse }}
+        onClick={() => changePath("/galerie")}
+      >
+        Galerie
+      </MenuEntryDesktop.right>
+      <MenuEntryDesktop.right
+        {...{ mouse }}
+        onClick={() => changePath("/prix")}
+      >
+        Prix
+      </MenuEntryDesktop.right>
+      <MenuEntryDesktop.right
+        {...{ mouse }}
+        onClick={() => changePath("/route")}
+      >
+        Route
+      </MenuEntryDesktop.right>
+      <MenuEntryDesktop.right
+        {...{ mouse }}
+        onClick={() => changePath("/contact")}
+      >
         Contact
       </MenuEntryDesktop.right>
     </MenuDesktop>
   );
 }
-export function MobileMenu({ mouse }) {
+export function MobileMenu({ changePath, mouse }) {
   const [displayGenderButtons, setDisplayGenderButtons] = useState(false);
   return (
     <MenuMobile>
-      <MenuEntryMobile {...{ mouse }} image={homeImage}>
+      <MenuEntryMobile
+        {...{ mouse }}
+        image={homeImage}
+        onClick={() => changePath("/accueil")}
+      >
         Accueil
       </MenuEntryMobile>
-      <MenuEntryMobile {...{ mouse }} image={aboutImage}>
+      <MenuEntryMobile
+        {...{ mouse }}
+        image={aboutImage}
+        onClick={() => changePath("/a-propos-de-nous")}
+      >
         À propos de nous
       </MenuEntryMobile>
       <MenuEntryMobile noMenuHandler separator />
-      <MenuEntryMobile {...{ mouse }} image={openingHoursImage}>
+      <MenuEntryMobile
+        {...{ mouse }}
+        image={openingHoursImage}
+        onClick={() => changePath("/horaire")}
+      >
         Horaire
       </MenuEntryMobile>
-      <MenuEntryMobile {...{ mouse }} image={galleryImage}>
+      <MenuEntryMobile
+        {...{ mouse }}
+        image={galleryImage}
+        onClick={() => changePath("/galerie")}
+      >
         Galerie
       </MenuEntryMobile>
-      <MenuEntryMobile {...{ mouse }} image={euroImage}>
+      <MenuEntryMobile
+        {...{ mouse }}
+        image={euroImage}
+        onClick={() => changePath("/prix")}
+      >
         Prix
       </MenuEntryMobile>
       <MenuEntryMobile noMenuHandler separator />
-      <MenuEntryMobile {...{ mouse }} image={routeImage}>
+      <MenuEntryMobile
+        {...{ mouse }}
+        image={routeImage}
+        onClick={() => changePath("/route")}
+      >
         Route
       </MenuEntryMobile>
-      <MenuEntryMobile {...{ mouse }} image={contactImage}>
+      <MenuEntryMobile
+        {...{ mouse }}
+        image={contactImage}
+        onClick={() => changePath("/contact")}
+      >
         Contact
       </MenuEntryMobile>
       <MenuMobileBottom>
@@ -82,6 +141,7 @@ export function MobileMenu({ mouse }) {
   );
 }
 const mapStateToProps = ({
+  router: { pathname },
   state: {
     mouse,
     window: {
@@ -89,13 +149,20 @@ const mapStateToProps = ({
     }
   }
 }) => {
-  return { width, mouse };
+  return { width, mouse, pathname };
 };
-function Menu({ width, mouse }) {
+const mapDispatchToProps = dispatch => {
+  return { changePath: path => dispatch(changePath(path)) };
+};
+function Menu({ width, mouse, changePath, pathname }) {
+  console.log(pathname);
   return width > 1450 ? (
-    <DesktopMenu {...{ mouse }} />
+    <DesktopMenu {...{ mouse, changePath }} />
   ) : (
-    <MobileMenu {...{ mouse }} />
+    <MobileMenu {...{ mouse, changePath }} />
   );
 }
-export default connect(mapStateToProps)(Menu);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Menu);
