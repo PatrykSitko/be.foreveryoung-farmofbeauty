@@ -40,3 +40,9 @@
 .menu-separator-male-theme::after {
   border: 0px solid black;
 }
+.mobile-menu-entry-hover-male-theme {
+  background-color: #3659b8d5;
+}
+.mobile-menu-entry-clicked-male-theme {
+  background-color: red;
+}

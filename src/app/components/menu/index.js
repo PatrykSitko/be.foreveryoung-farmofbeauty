@@ -38,19 +38,33 @@ export function DesktopMenu({ mouse }) {
     </MenuDesktop>
   );
 }
-export function MobileMenu() {
+export function MobileMenu({ mouse }) {
   const [displayGenderButtons, setDisplayGenderButtons] = useState(false);
   return (
     <MenuMobile>
-      <MenuEntryMobile image={homeImage}>Accueil</MenuEntryMobile>
-      <MenuEntryMobile image={aboutImage}>À propos de nous</MenuEntryMobile>
+      <MenuEntryMobile {...{ mouse }} image={homeImage}>
+        Accueil
+      </MenuEntryMobile>
+      <MenuEntryMobile {...{ mouse }} image={aboutImage}>
+        À propos de nous
+      </MenuEntryMobile>
       <MenuEntryMobile noMenuHandler separator />
-      <MenuEntryMobile image={openingHoursImage}>Horaire</MenuEntryMobile>
-      <MenuEntryMobile image={galleryImage}>Galerie</MenuEntryMobile>
-      <MenuEntryMobile image={euroImage}>Prix</MenuEntryMobile>
+      <MenuEntryMobile {...{ mouse }} image={openingHoursImage}>
+        Horaire
+      </MenuEntryMobile>
+      <MenuEntryMobile {...{ mouse }} image={galleryImage}>
+        Galerie
+      </MenuEntryMobile>
+      <MenuEntryMobile {...{ mouse }} image={euroImage}>
+        Prix
+      </MenuEntryMobile>
       <MenuEntryMobile noMenuHandler separator />
-      <MenuEntryMobile image={routeImage}>Route</MenuEntryMobile>
-      <MenuEntryMobile image={contactImage}>Contact</MenuEntryMobile>
+      <MenuEntryMobile {...{ mouse }} image={routeImage}>
+        Route
+      </MenuEntryMobile>
+      <MenuEntryMobile {...{ mouse }} image={contactImage}>
+        Contact
+      </MenuEntryMobile>
       <MenuMobileBottom>
         <MenuMobileBottomButtons.left>
           {displayGenderButtons ? <FemaleButton /> : <SlideToCallButton />}
@@ -78,6 +92,10 @@ const mapStateToProps = ({
   return { width, mouse };
 };
 function Menu({ width, mouse }) {
-  return width > 1450 ? <DesktopMenu {...{ mouse }} /> : <MobileMenu />;
+  return width > 1450 ? (
+    <DesktopMenu {...{ mouse }} />
+  ) : (
+    <MobileMenu {...{ mouse }} />
+  );
 }
 export default connect(mapStateToProps)(Menu);

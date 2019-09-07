@@ -56,7 +56,7 @@
   position: relative;
   background-color: #ff00ff22;
   transition: height 0.8s, font-size 0.8s, width 0.8s, visibility 0.4s,
-    background-color 1s;
+    background-color 0.5s;
 }
 .mobile-menu-separator::before {
   border: 0px solid black;

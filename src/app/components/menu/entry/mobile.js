@@ -4,6 +4,7 @@ import "./entry.mobile.css";
 import "./entry.mobile.theme.female.css";
 import "./entry.mobile.theme.male.css";
 import "./entry.mobile.theme.neutral.css";
+import { useMouseEnteredTracker, useMouseDownTracker } from "../../effects";
 
 const MapStateToProps = ({
   state: {
@@ -27,6 +28,7 @@ const handleOnClick = (
 };
 
 function MenuEntryMobile({
+  mouse,
   user,
   image,
   children,
@@ -52,6 +54,9 @@ function MenuEntryMobile({
       ? themes.male
       : themes.neutral;
   const ref = useRef();
+  const mouseEntered = useMouseEnteredTracker(mouse, ref);
+  const mouseClicked = useMouseDownTracker(mouse, ref);
+  console.log(mouseEntered);
   return (
     <div
       {...{ ...props, ref }}
@@ -69,7 +74,9 @@ function MenuEntryMobile({
           : ` mobile-menu-entry-shrinked menu-entry-shrinked${currentTheme}`
       }${
         separator ? ` mobile-menu-separator menu-separator${currentTheme}` : ""
-      }${className ? " " + className : ""}`}
+      }${className ? " " + className : ""}${
+        mouseEntered ? ` mobile-menu-entry-hover${currentTheme}` : ""
+      }${mouseClicked ? ` mobile-menu-entry-clicked${currentTheme}` : ""}`}
     >
       {image
         ? [
