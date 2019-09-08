@@ -11,8 +11,8 @@ import "./index.css";
 
 ReactDOM.render(
   <Provider store={store}>
+    <Menu />
     <Router history={browserHistory}>
-      <Menu />
       <Routes />
     </Router>
   </Provider>,

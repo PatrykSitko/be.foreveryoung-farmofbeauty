@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { push } from "redux-first-routing";
 import { connect } from "react-redux";
 import MenuMobile from "./mobile";
 import MenuDesktop from "./desktop";
@@ -18,10 +19,8 @@ import SlideToCallButton from "../buttons/slide/call";
 import FemaleButton from "../buttons/gender/female";
 import MaleButton from "../buttons/gender/male";
 import MenuEntryDesktop from "./entry/desktop";
-import { changePath } from "../../../redux/actions/router";
 
 export function DesktopMenu({ changePath, mouse }) {
-  console.log(changePath);
   return (
     <MenuDesktop onClick={() => changePath("/accueil")}>
       <MenuEntryDesktop.left
@@ -152,7 +151,7 @@ const mapStateToProps = ({
   return { width, mouse, pathname };
 };
 const mapDispatchToProps = dispatch => {
-  return { changePath: path => dispatch(changePath(path)) };
+  return { changePath: path => dispatch(push(path)) };
 };
 function Menu({ width, mouse, changePath, pathname }) {
   console.log(pathname);

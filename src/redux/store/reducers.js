@@ -23,17 +23,6 @@ export const initialRouterState = initialStateJSON.router;
 export const routerReducer = (
   router = initialRouterState,
   { type: action, payload }
-) => {
-  const updatedRouter =
-    action === "ROUTER/LOCATION_CHANGE" ? { ...router, ...payload } : router;
-  if (action === "ROUTER/LOCATION_CHANGE") {
-    window.history.pushState(
-      { id: updatedRouter.pathname },
-      initialStateJSON.title,
-      updatedRouter.pathname
-    );
-  }
-  return updatedRouter;
-};
+) => (action === "ROUTER/LOCATION_CHANGE" ? { ...router, ...payload } : router);
 
 export default combineReducers({ state: stateReducer, router: routerReducer });
